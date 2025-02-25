@@ -1,8 +1,13 @@
 import React from 'react'
+import FundTable from './FundTable'
+import { Col } from 'react-bootstrap'
 
-const FundamentalAnalisis = () => {
+const FundamentalAnalisis = ({type}) => {
   return (
-    <div>FundamentalAnalisis</div>
+    <Col xs={12} lg={8} xl={6}  className='p-3'>
+
+      <FundTable type={type}/>
+    </Col>
   )
 }
 

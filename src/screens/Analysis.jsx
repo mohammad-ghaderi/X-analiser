@@ -127,11 +127,11 @@ const Analysis = () => {
                 </div>
             </Row>
             <Row className='g-0'>
-                <Col xs={12} md={8} lg={8} xl={6} className='p-3'>
-                    {tabIdx === 0 && <TechnicalAnalisis /> }
-                    {tabIdx === 1 && <FundamentalAnalisis type={categoryIdx}/> }
-                    {tabIdx === 2 && <SentimentAnalisis /> }
-                </Col>
+                
+                {tabIdx === 0 && <TechnicalAnalisis /> }
+                {tabIdx === 1 && <FundamentalAnalisis type={categoryIdx}/> }
+                {tabIdx === 2 && <SentimentAnalisis /> }
+
             </Row>
         </div>
     )

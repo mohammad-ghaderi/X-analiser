@@ -194,3 +194,31 @@ tfoot textarea {
 .technical-analysis-table tfoot .text-area {
     padding: 0 !important;
 }
+
+
+/* Fundamental */
+
+.fundamental-analysis {
+    text-align: center;
+    min-width: 600px !important;
+}
+
+.fundamental-analysis td {
+    vertical-align: middle;
+}
+
+.fundamental-analysis .upside-down {
+    transform: rotate(180deg) scaleY(.99);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: large;
+    
+}
+
+.fundamental-analysis .second-layer {
+    text-align: center;
+}
+
+.fundamental-analysis .form-control:focus {
+    box-shadow: 0px 0px 7px 0.05rem rgba(26, 26, 26, .25);
+}
