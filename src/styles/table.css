@@ -1,0 +1,196 @@
+.technical-analysis-table {
+    max-width: 600px !important;
+}
+
+.technical-analysis-table,
+.technical-analysis-table td,
+.technical-analysis-table th,
+.technical-analysis-table tr {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    border-color: #e1e1e1;
+}
+
+.technical-analysis-table tfoot td {
+    padding: .2rem 0 !important;
+}
+
+
+.technical-analysis-table th {
+    text-align: center;
+
+    /* background: linear-gradient(135deg, #2C3E50, #1B2631); */
+    color: white;
+}
+
+/*  */
+
+.technical-analysis-table thead th:nth-child(1) {
+    background-color: #2B2B2B;
+}
+
+/* Dark Gray */
+.technical-analysis-table tr td:nth-child(1) {
+    border: 1px solid #e1e1e1;
+    padding: .2rem 0;
+
+}
+
+.technical-analysis-table thead tr:nth-child(1) th:nth-child(1),
+.technical-analysis-table thead tr:nth-child(2) th:nth-child(1),
+.technical-analysis-table thead tr:nth-child(1) th:nth-child(3),
+.technical-analysis-table thead tr:nth-child(2) th:nth-child(4),
+.technical-analysis-table thead tr:nth-child(2) th:nth-child(5) {
+    background-color: #2B2B2B;
+    color: #bbb;
+}
+
+/* Dark Gray */
+
+.technical-analysis-table thead tr:nth-child(1) th:nth-child(2),
+.technical-analysis-table thead tr:nth-child(1) th:nth-child(4),
+.technical-analysis-table thead tr:nth-child(2) th:nth-child(2),
+.technical-analysis-table thead tr:nth-child(2) th:nth-child(3),
+.technical-analysis-table thead tr:nth-child(2) th:nth-child(6),
+.technical-analysis-table thead tr:nth-child(2) th:nth-child(7) {
+    background-color: #0B0B0B;
+    color: #bbb;
+}
+
+.technical-analysis-table th {
+    text-align: center;
+}
+
+.technical-analysis-table td:first-child {
+    width: 230px;
+    text-align: center;
+}
+
+.technical-analysis-table td:not(:first-child) {
+    position: relative;
+}
+
+.technical-analysis-table select {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+
+
+    text-align: center;
+    text-align-last: center;
+}
+
+
+.technical-analysis-table thead tr {
+    color: white;
+    /* Classic White Text */
+    border: 2px solid #e1e1e1;
+}
+
+.technical-analysis-table select option:nth-child(2) {
+    background-color: #B6FFB6;
+    color: black;
+}
+
+.technical-analysis-table select option:nth-child(3) {
+    background-color: #FFF4B6;
+    color: black;
+}
+
+/* Light Red */
+.technical-analysis-table select option:nth-child(4) {
+    background-color: #FFB6B6;
+    color: black;
+}
+
+
+.technical-analysis-table .tr-res td {
+    text-align: center;
+    font-weight: 600;
+    padding: .2rem 0;
+    opacity: .95;
+}
+
+.technical-analysis-table .tr-res td:first-child {
+    font-weight: 500;
+}
+
+.technical-analysis-table .tr-res:nth-of-type(1) td {
+    background-color: #1E1E1E; /* Dark Gray */
+    color: #A8C2B6; /* Soft Green Mixed with Gray */
+    
+}
+
+.technical-analysis-table .tr-res:nth-of-type(2) td {
+    background-color: #1E1E1E; /* Dark Gray */
+    color: #E6C7A6; /* Soft Orange-Beige Mixed with Gray */
+    
+}
+
+.technical-analysis-table .tr-res:nth-of-type(3) td {
+    background-color: #1E1E1E; /* Dark Gray */
+    color: #D8A7AC; /* Soft Red-Pink Mixed with Gray */
+    
+}
+
+.technical-analysis-table .tr-res:nth-of-type(4) td {
+    background-color: #1E1E1E; /* Dark Gray */
+    color: #B0BFD8; /* Soft Blue Mixed with Gray */   
+}
+
+.technical-analysis-table tfoot tr td:nth-child(1) {
+    border-color: #aaa;
+    padding: 10px;
+}
+
+.technical-analysis-table tfoot td {
+    background-color: #2a2a2a; /* Dark gray */
+    border-top: 2px solid #aaa; 
+    padding: 10px; /* Spacing inside */
+}
+
+
+/* Styled Textarea */
+tfoot textarea {
+    width: 100%;  
+    height: 80px;  
+    padding: 10px;
+    resize: none;  
+    border: 1px solid #555; /* Slight border for separation */
+    background-color: #1e1e1e; /* Even darker textarea */
+    color: #e0e0e0; /* Light gray text */
+    font-size: 14px;
+    font-family: 'Arial', sans-serif; /* Classic font */
+    box-sizing: border-box;  
+    outline: none; /* Remove default blue outline */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4); /* Creates separation */
+}
+
+.technical-analysis-table tr td:not(:first-child) select {
+    font-weight: 600;
+}
+
+
+
+/* Placeholder Text */
+.technical-analysis-table tfoot {
+    color: #888; /* Classic dim gray for placeholder */
+}
+
+.technical-analysis-table .additional-note {
+    color: #8c8989;
+    font-weight: 400;
+}
+
+.technical-analysis-table tfoot .text-area {
+    padding: 0 !important;
+}
