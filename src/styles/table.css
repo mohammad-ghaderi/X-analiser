@@ -222,3 +222,8 @@ tfoot textarea {
 .fundamental-analysis .form-control:focus {
     box-shadow: 0px 0px 7px 0.05rem rgba(26, 26, 26, .25);
 }
+
+.fund-analysis2 td {
+    position: relative;
+}
+
