@@ -9,9 +9,19 @@ const FundTable = ({ type }) => {
 
     const [firstIdx, setFirstIdx] = useState(0);
     const [secondIdx, setSecondIdx] = useState(1);
-    const [compares, setCompares] = useState([]);
+    const [data, setData] = useState({});
 
     const symbols = ['fa-greater-than', 'fa-less-than', 'fa-equals', ''];
+
+    const dataHandler = (index, idx, value) => {        
+        let newData = {...data};
+        let line = newData[index] === undefined ? {} : newData[index];
+        line[idx] = value;
+        console.log(line);
+        newData[index] = line;
+        setData(newData);
+        console.log(newData);
+    }
 
 
     const firstValueHandler = (idx) => {
@@ -24,19 +34,16 @@ const FundTable = ({ type }) => {
     }
 
     const compareHandler = (index) => {
-        let newCompare = [...compares];
-        if (newCompare[index] == undefined) newCompare[index] = -1;
-        newCompare[index]++;
-        newCompare[index] %= 3;
-        setCompares(newCompare);
+        let newCompare = (data[index] !== undefined && data[index][2] !== undefined) ? data[index][2] : -1;
+        newCompare++;
+        newCompare %= 3;        
+        dataHandler(index, 2, newCompare);
     }
-
-
 
     useEffect(() => {
         console.log(`f${firstIdx}, s${secondIdx}`);
-    }, [firstIdx, secondIdx], compares)
-
+    }, [firstIdx, secondIdx])
+    
     return (
         <Table bordered className={'fundamental-analysis'} variant='secondary'>
             <thead>
@@ -47,6 +54,7 @@ const FundTable = ({ type }) => {
                         <Form.Select className="form-select"
                                 onChange={(e) => firstValueHandler(e.target.selectedIndex)}
                                 value={values[firstIdx]}
+                                style={{textAlign: 'center'}}
                                 
                             >
                             {values.map((option, idx) => (
@@ -61,6 +69,7 @@ const FundTable = ({ type }) => {
                         <Form.Select className="form-select"
                                 onChange={(e) => secondValueHandler(e.target.selectedIndex)}
                                 value={values[secondIdx]}
+                                style={{textAlign: 'center'}}
                         >
                             {values.map((option, idx) => (
                                 <option key={idx} value={option}>{option}</option>
@@ -82,27 +91,34 @@ const FundTable = ({ type }) => {
                             >
                                 {td.content && td.content}
                                 {td.type === 'cmp' && 
-                                    <Button variant={`${compares[index] !== undefined ? 'outline-': ''}secondary`}
+                                    <Button variant={`${data[index] !== undefined && data[index][2] !== undefined ? 'outline-': ''}secondary`}
                                             className='p-2 border-0 border-0' 
                                             style={{height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, fontSize: '1.1rem'}}
                                             onClick={() => compareHandler(index)}
                                     >   
-                                        <i className={`fa-solid ${symbols[(compares[index] !== undefined ? compares[index] : 3)]}`}></i>
+                                        <i className={`fa-solid ${symbols[((data[index] !== undefined && data[index][2] !== undefined) ? data[index][2] : 3)]}`}></i>
                                     </Button>
                                 }
-                                {td.type == 'inp1' && 
+                                {td.type === 'inp' && 
                                     <InputGroup className="">
                                         <Form.Control
                                         aria-label="Small"
                                         aria-describedby="inputGroup-sizing-lg"
+                                        style={{height: '100%'}}
+                                        onChange={(e) => dataHandler(index, idx, e.target.value)}
+                                        value={(data[index] !== undefined && data[index][idx] !== undefined) ? data[index][idx] : ''}
                                         />
                                     </InputGroup>
                                 }
-                                {td.type == 'inp2' && 
-                                    <InputGroup className="">
+                                {td.type === 'inp-textarea' && 
+                                    <InputGroup className="" style={{ position: 'absolute', left: '0', top: '0', height: '100%'}}>
                                         <Form.Control
+                                        as="textarea"
                                         aria-label="Small"
                                         aria-describedby="inputGroup-sizing-lg"
+                                        style={{height: '100%', resize: 'none'}}
+                                        onChange={(e) => dataHandler(index, idx, e.target.value)}
+                                        value={(data[index] !== undefined && data[index][idx] !== undefined) ? data[index][idx] : ''}
                                         />
                                     </InputGroup>
                                 }
