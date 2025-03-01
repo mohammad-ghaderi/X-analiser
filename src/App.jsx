@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomeScreen from './screens/HomeScreen';
 import Analysis  from './screens/Analysis';
 import Profile from './screens/Profile';
-
-
 
 import './styles/bootstrap.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -18,7 +16,7 @@ const App = () => {
     }, []);
 
     return (
-        <Router>
+        <HashRouter>
             <Navbar />
             <div style={{paddingLeft: '4.5rem'}}>
                 <Routes>
@@ -27,7 +25,7 @@ const App = () => {
                     <Route path="/profile" element={<Profile />} />
                 </Routes>
             </div>
-        </Router>
+        </HashRouter>
     );
 }
 

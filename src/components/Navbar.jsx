@@ -14,7 +14,7 @@ const Navbar = () => {
             { name: 'History', icon: 'fa-solid fa-history', link: '/history', id: 2},
             { name: 'Diagram', icon: 'fa-solid fa-diagram-project', link: '/diagram', id: 3},
             { name: 'Chart', icon: 'fa-solid fa-chart-bar', link: '/chart', id: 4},
-            { name: 'About us', icon: 'fa-solid fa-circle-info"', link: '/about', id: 5},
+            { name: 'About us', icon: 'fa-solid fa-circle-info', link: '/about', id: 5},
         ],
         [
             { name: 'Settings', icon: 'fa-solid fa-cog', link: '/setting', id: 6},

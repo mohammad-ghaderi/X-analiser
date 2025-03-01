@@ -1,5 +1,5 @@
 {
-	"name": "x-analiser",
+	"name": "x-analyser",
 	"private": true,
 	"version": "0.0.0",
 	"type": "commonjs",
@@ -41,8 +41,8 @@
 		"wait-on": "^8.0.2"
 	},
 	"build": {
-		"appId": "com.x-analiser",
-		"productName": "X-analiser",
+		"appId": "com.x-analyser",
+		"productName": "X-analyser",
 		"files": [
 			"electron/**/*",
 			"dist/**/*",
@@ -54,12 +54,7 @@
 			"output": "release"
 		},
 		"win": {
-			"target": "nsis",
-			"icon": "assets/icon.ico"
-		},
-		"mac": {
-			"target": "dmg",
-			"icon": "assets/icon.icns"
+			"target": "nsis"
 		}
 	}
 }
