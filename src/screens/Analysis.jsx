@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import {
     Row,
     ButtonGroup,
@@ -12,12 +12,14 @@ import '../styles/analysis.css';
 import TechnicalAnalisis from '../components/TechnicalAnalisis';
 import FundamentalAnalisis from '../components/FundamentalAnalisis';
 import SentimentAnalisis from '../components/SentimentAnalisis';
+import {TablesContext} from '../contexts/TablesContext';
 
 const Analysis = () => {
 
     const [tabIdx, setTabIdx] = useState(0);
     const [categoryIdx, setCategoryIdx] = useState(0);
     const [targetIdx, setTargetIdx] = useState(0);
+    const {talbes, setTables} = useContext(TablesContext);
 
     const buttonTabs = ['Technical', 'Fundamental', 'Sentiment'];
     const categories = ['Forex', 'Stocks', 'Commodity', 'Crypto'];
@@ -64,6 +66,11 @@ const Analysis = () => {
     const targetHandler = (idx) => {
         setTargetIdx(idx);
     }   
+
+    useEffect(() => {
+        setTables({});
+        console.log('clear');
+    }, [categoryIdx, targetIdx])
 
     return (
         <div>

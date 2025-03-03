@@ -12,6 +12,6 @@ app.whenReady().then(() => {
     },
   });
 
-  // mainWindow.loadURL("http://localhost:5173"); // React Dev Server
-  mainWindow.loadURL(`file://${path.join(__dirname, '../dist/index.html')}`);
+  mainWindow.loadURL("http://localhost:5173"); // React Dev Server
+  // mainWindow.loadURL(`file://${path.join(__dirname, '../dist/index.html')}`);
 });
