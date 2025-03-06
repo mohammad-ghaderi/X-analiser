@@ -19,9 +19,10 @@ const Analysis = () => {
     const [tabIdx, setTabIdx] = useState(0);
     const [categoryIdx, setCategoryIdx] = useState(0);
     const [targetIdx, setTargetIdx] = useState(0);
-    const {talbes, setTables} = useContext(TablesContext);
-
+    const [forceRerender, setForceRerender] = useState(false);
+    
     const buttonTabs = ['Technical', 'Fundamental', 'Sentiment'];
+    const {tables , setTables} = useContext(TablesContext);
     const categories = ['Forex', 'Stocks', 'Commodity', 'Crypto'];
     const target = {
         Forex: [
@@ -65,12 +66,20 @@ const Analysis = () => {
 
     const targetHandler = (idx) => {
         setTargetIdx(idx);
-    }   
+    }  
 
     useEffect(() => {
         setTables({});
-        console.log('clear');
-    }, [categoryIdx, targetIdx])
+        console.log('clear')
+        ;
+    }, [categoryIdx, targetIdx]);
+    
+    useEffect(() => {
+        setForceRerender(!forceRerender);
+        console.log('tables');
+        console.log(tables);
+
+    }, [tables])
 
     return (
         <div>
@@ -136,7 +145,7 @@ const Analysis = () => {
             <Row className='g-0'>
                 
                 {tabIdx === 0 && <TechnicalAnalisis /> }
-                {tabIdx === 1 && <FundamentalAnalisis type={categoryIdx}/> }
+                {tabIdx === 1 && <FundamentalAnalisis type={categoryIdx} /> }
                 {tabIdx === 2 && <SentimentAnalisis /> }
 
             </Row>

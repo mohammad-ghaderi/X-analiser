@@ -1,20 +1,37 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState, useContext} from 'react';
 import {Table} from 'react-bootstrap';
+import {TablesContext} from '../contexts/TablesContext'
 
 import "../styles/table.css";
 
-const SelectionLRS = ({template}) => {
+const SelectionLRS = ({template, type}) => {
 
-    const [techData, setTechData] = useState(Array.from({ length: template.body.length }, () => Array(6).fill(0)));
+    const {tables, setTables} = useContext(TablesContext)
+    const [techData, setTechData] = useState(tables[type] !== undefined ? tables[type].body : Array.from({ length: template.body.length }, () => Array(6).fill(0)));
     const [resTd, setResTd] = useState(Array.from({ length: 4}, () => Array(6).fill('')));
 
+
     const refs = useRef([])
+    const chars = [' ', 'L', 'R', 'S'];
 
     const selectionHandler = (e, index, idx) => {
         let newData = [...techData];
         newData[index][idx] = e.target.selectedIndex;
         setTechData(newData);
+        
         calculateResult();
+
+        let newTables = {...tables};
+        if (tables[type] === undefined) {
+            newTables[type] = {
+                body: [...newData],
+                res: [...resTd]
+            }
+        } else {
+            newTables[type].body = [...newData];
+            newTables[type].res = [...resTd];
+        }
+        setTables(newTables);
     }
 
     const calculateResult = () => {
@@ -74,7 +91,7 @@ const SelectionLRS = ({template}) => {
 
     useEffect(() => {
         calculateResult();
-    }, [])
+    }, []);
 
   return (
     <Table className={template.class} bordered>
@@ -103,15 +120,16 @@ const SelectionLRS = ({template}) => {
                     {Array(tr.count).fill().map((td, idx) => (
                         <td className='p-0 custom-select-option' key={idx}>
                             <select className="custopm-selcet" 
-                                    defaultValue={''} 
-                                    onChange={(e) => selectionHandler(e, index, idx - 1)}
+                                    // defaultValue={''} 
+                                    value={chars[techData[index][idx]]}
+                                    onChange={(e) => selectionHandler(e, index, idx)}
                                     ref={(el) => (refs.current[index * 6 + idx - 1] = el)}
                                     onKeyDown={(e) => handleKeyDown(e, index, idx - 1)} 
                             >
-                                <option disabled></option>
-                                <option>L</option>
-                                <option>R</option>
-                                <option>S</option>
+                                <option value=' '></option>
+                                <option value='L'>L</option>
+                                <option value='R'>R</option>
+                                <option value='S'>S</option>
                             </select>
                         </td>
                     ))}

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Table, Form, Button, InputGroup } from 'react-bootstrap';
 import { FUNDAMENTAL_ANALYSIS_TYPE1, FUNDAMENTAL_ANALYSIS_TYPE2 } from '../designs/Tables';
 import '../styles/table.css';
+import { TablesContext } from '../contexts/TablesContext';
+import { FUNDAMENTAL } from '../constants/analysis';
 
 const symbols = ['fa-greater-than', 'fa-less-than', 'fa-equals', ''];
 const values = ['GBP', 'USD', 'EUR', 'JPY', 'AUD', 'CAD', 'CHF', 'CNY', 'SEK', 'NZD', 'MXN', 'SGD', 'HKD', 'NOK', 'KRW']
-
-
 
 const FundTable = ({ type }) => {
     if (type === 1) return <FundTable2/>
@@ -15,18 +15,24 @@ const FundTable = ({ type }) => {
 
 
 const FundTable1 = () => {
+
+    const {tables, setTables} = useContext(TablesContext);
+    const type = FUNDAMENTAL;
     const [firstIdx, setFirstIdx] = useState(0);
     const [secondIdx, setSecondIdx] = useState(1);
-    const [data, setData] = useState({});
+    const [data, setData] = useState(tables[type] !== undefined ? tables[type] : {});
+
 
     const dataHandler = (index, idx, value) => {        
         let newData = {...data};
         let line = newData[index] === undefined ? {} : newData[index];
         line[idx] = value;
-        console.log(line);
         newData[index] = line;
         setData(newData);
-        console.log(newData);
+
+        let newTables = {...tables};
+        newTables[type] = {...data};
+        setTables(newTables);
     }
 
 
@@ -139,16 +145,22 @@ const FundTable1 = () => {
 }
 
 const FundTable2 = () => {
-    const [data, setData] = useState({});
+    const {tables, setTables} = useContext(TablesContext);
+    const type = FUNDAMENTAL;
+    const [data, setData] = useState(tables[type] !== undefined ? tables[type] : {});
+
+
 
     const dataHandler = (index, idx, value) => {        
         let newData = {...data};
         let line = newData[index] === undefined ? {} : newData[index];
         line[idx] = value;
-        console.log(line);
         newData[index] = line;
         setData(newData);
-        console.log(newData);
+
+        let newTables = {...tables};
+        newTables[type] = {...data};
+        setTables(newTables);
     }
 
     const compareHandler = (index) => {
