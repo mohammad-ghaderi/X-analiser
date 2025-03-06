@@ -5,24 +5,25 @@ import {
     ToggleButton,
     Dropdown,
     Form,
-    Col
 } from 'react-bootstrap';
 
-import '../styles/analysis.css';
 import TechnicalAnalisis from '../components/TechnicalAnalisis';
 import FundamentalAnalisis from '../components/FundamentalAnalisis';
 import SentimentAnalisis from '../components/SentimentAnalisis';
-import {TablesContext} from '../contexts/TablesContext';
+import { TablesContext } from '../contexts/TablesContext';
+import '../styles/analysis.css';
 
 const Analysis = () => {
 
     const [tabIdx, setTabIdx] = useState(0);
     const [categoryIdx, setCategoryIdx] = useState(0);
     const [targetIdx, setTargetIdx] = useState(0);
-    const [fr, sfr] = useState(false);
-    
+    const [fr, sfr] = useState(0);
+
+    const [filePath, setFilePath] = useState("");
+
     const buttonTabs = ['Technical', 'Fundamental', 'Sentiment'];
-    const {tables , setTables} = useContext(TablesContext);
+    const { tables, setTables } = useContext(TablesContext);
     const categories = ['Forex', 'Stocks', 'Commodity', 'Crypto'];
     const target = {
         Forex: [
@@ -66,16 +67,52 @@ const Analysis = () => {
 
     const targetHandler = (idx) => {
         setTargetIdx(idx);
-    }  
+    }
+
+    // Function to call backend API to generate Excel file
+    const generateExcel = async () => {
+        const data = [
+            ["John Doe", 25, "USA"],
+            ["Alice", 30, "UK"],
+            ["Bob", 28, "Canada"]
+        ];
+
+        try {
+            const result = await window.electron.generateExcel(data);
+            // setFilePath(result.filePath);  // Display file path or use it for further logic
+            console.log('result');
+            console.log(result);
+
+            
+          } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const exportPdf = (e) => {
+        e.preventDefault();
+        console.log('tables');
+        console.log(tables);
+
+    }
+
+    const exportExcel = async (e) => {
+        e.preventDefault();
+        console.log('tables');
+        console.log(tables);
+
+        await generateExcel();
+    }
 
     useEffect(() => {
+        if (fr === 0) return;
         setTables({});
         console.log('clear')
-        ;
+            ;
     }, [categoryIdx, targetIdx]);
-    
+
     useEffect(() => {
-        sfr(!fr);
+        sfr((prev) => prev + 1);
     }, [tables])
 
     return (
@@ -128,8 +165,8 @@ const Analysis = () => {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item href="#/action-1">export PDF</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-2">export excel</Dropdown.Item>
+                                    <Dropdown.Item onClick={(e) => exportPdf(e)}>export PDF</Dropdown.Item>
+                                    <Dropdown.Item onClick={(e) => exportExcel(e)}>export excel</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </ButtonGroup>
@@ -140,10 +177,10 @@ const Analysis = () => {
                 </div>
             </Row>
             <Row className='g-0'>
-                
-                {tabIdx === 0 && <TechnicalAnalisis fr={fr}/> }
-                {tabIdx === 1 && <FundamentalAnalisis type={categoryIdx} fr={fr}/> }
-                {tabIdx === 2 && <SentimentAnalisis fr={fr}/> }
+
+                {tabIdx === 0 && <TechnicalAnalisis fr={fr} />}
+                {tabIdx === 1 && <FundamentalAnalisis type={categoryIdx} fr={fr} />}
+                {tabIdx === 2 && <SentimentAnalisis fr={fr} />}
 
             </Row>
         </div>
