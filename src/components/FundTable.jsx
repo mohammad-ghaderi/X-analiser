@@ -8,19 +8,23 @@ import { FUNDAMENTAL } from '../constants/analysis';
 const symbols = ['fa-greater-than', 'fa-less-than', 'fa-equals', ''];
 const values = ['GBP', 'USD', 'EUR', 'JPY', 'AUD', 'CAD', 'CHF', 'CNY', 'SEK', 'NZD', 'MXN', 'SGD', 'HKD', 'NOK', 'KRW']
 
-const FundTable = ({ type }) => {
-    if (type === 1) return <FundTable2/>
-    return <FundTable1/>
+const FundTable = ({ type, fr }) => {
+    if (type === 1) return <FundTable2 fr={fr}/>
+    return <FundTable1 fr={fr}/>
 }
 
 
-const FundTable1 = () => {
+const FundTable1 = ({fr}) => {
 
     const {tables, setTables} = useContext(TablesContext);
     const type = FUNDAMENTAL;
     const [firstIdx, setFirstIdx] = useState(0);
     const [secondIdx, setSecondIdx] = useState(1);
-    const [data, setData] = useState(tables[type] !== undefined ? tables[type] : {});
+    const [data, setData] = useState(
+        tables[type] !== undefined ? 
+        tables[type] : 
+        {}
+    );
 
 
     const dataHandler = (index, idx, value) => {        
@@ -54,7 +58,11 @@ const FundTable1 = () => {
 
     useEffect(() => {
         console.log(`f${firstIdx}, s${secondIdx}`);
-    }, [firstIdx, secondIdx])
+    }, [firstIdx, secondIdx]);
+
+    useEffect(() => {
+        if (tables[type] === undefined) setData({});
+    }, [fr])
     
     return (
         <Table bordered className={'fundamental-analysis'} variant='secondary'>
@@ -144,10 +152,14 @@ const FundTable1 = () => {
     )
 }
 
-const FundTable2 = () => {
+const FundTable2 = ({fr}) => {
     const {tables, setTables} = useContext(TablesContext);
     const type = FUNDAMENTAL;
-    const [data, setData] = useState(tables[type] !== undefined ? tables[type] : {});
+    const [data, setData] = useState(
+        tables[type] !== undefined ? 
+        tables[type] : 
+        {}
+    );
 
 
 
@@ -169,6 +181,10 @@ const FundTable2 = () => {
         newCompare %= 3;        
         dataHandler(index, 2, newCompare);
     }
+
+    useEffect(() => {
+        if (tables[type] === undefined) setData({});
+    }, [fr])
     
     return (
         <Table bordered className={'fundamental-analysis fund-analysis2'} variant='secondary'>

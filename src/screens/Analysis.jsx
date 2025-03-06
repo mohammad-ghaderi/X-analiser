@@ -19,7 +19,7 @@ const Analysis = () => {
     const [tabIdx, setTabIdx] = useState(0);
     const [categoryIdx, setCategoryIdx] = useState(0);
     const [targetIdx, setTargetIdx] = useState(0);
-    const [forceRerender, setForceRerender] = useState(false);
+    const [fr, sfr] = useState(false);
     
     const buttonTabs = ['Technical', 'Fundamental', 'Sentiment'];
     const {tables , setTables} = useContext(TablesContext);
@@ -75,10 +75,7 @@ const Analysis = () => {
     }, [categoryIdx, targetIdx]);
     
     useEffect(() => {
-        setForceRerender(!forceRerender);
-        console.log('tables');
-        console.log(tables);
-
+        sfr(!fr);
     }, [tables])
 
     return (
@@ -144,9 +141,9 @@ const Analysis = () => {
             </Row>
             <Row className='g-0'>
                 
-                {tabIdx === 0 && <TechnicalAnalisis /> }
-                {tabIdx === 1 && <FundamentalAnalisis type={categoryIdx} /> }
-                {tabIdx === 2 && <SentimentAnalisis /> }
+                {tabIdx === 0 && <TechnicalAnalisis fr={fr}/> }
+                {tabIdx === 1 && <FundamentalAnalisis type={categoryIdx} fr={fr}/> }
+                {tabIdx === 2 && <SentimentAnalisis fr={fr}/> }
 
             </Row>
         </div>

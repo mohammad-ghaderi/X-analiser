@@ -4,11 +4,19 @@ import {TablesContext} from '../contexts/TablesContext'
 
 import "../styles/table.css";
 
-const SelectionLRS = ({template, type}) => {
+const SelectionLRS = ({template, type, fr}) => {
 
     const {tables, setTables} = useContext(TablesContext)
-    const [techData, setTechData] = useState(tables[type] !== undefined ? tables[type].body : Array.from({ length: template.body.length }, () => Array(6).fill(0)));
-    const [resTd, setResTd] = useState(Array.from({ length: 4}, () => Array(6).fill('')));
+    const [techData, setTechData] = useState(
+        tables[type] !== undefined ? 
+        tables[type].body : 
+        Array.from({ length: template.body.length }, () => Array(6).fill(0))
+    );
+    const [resTd, setResTd] = useState(
+        tables[type] !== undefined ? 
+        tables[type].res : 
+        Array.from({ length: 4}, () => Array(6).fill(''))
+    );
 
 
     const refs = useRef([])
@@ -92,6 +100,15 @@ const SelectionLRS = ({template, type}) => {
     useEffect(() => {
         calculateResult();
     }, []);
+
+    useEffect(() => {
+        if (tables[type] === undefined) {
+            setTechData(Array.from({ length: template.body.length }, () => Array(6).fill(0)))
+            setResTd(Array.from({ length: 4}, () => Array(6).fill('')));
+        } 
+        calculateResult();
+        
+    }, [fr])
 
   return (
     <Table className={template.class} bordered>
