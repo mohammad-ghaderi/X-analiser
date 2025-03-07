@@ -140,7 +140,7 @@ const Analysis = () => {
                         <ButtonGroup >
                             <Form.Select className="form-select analysis-top-select"
                                 id="exampleSelect1"
-                                style={{ borderRight: '1px solid #e1e1e1', borderRight: '1px solid #e1e1e1' }}
+                                style={{ borderRight: '1px solid #e1e1e1'}}
                                 onChange={(e) => categoryHandler(e.target.selectedIndex)}
                             >
                                 {categories.map((cat, idx) => (

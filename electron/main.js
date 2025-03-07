@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron/main')
+const { app, BrowserWindow, ipcMain, dialog  } = require('electron/main')
 const { generateExcel } = require('./IPC-funcs/generateExcel'); // Import function
 const path = require('node:path')
 
@@ -22,14 +22,21 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow();
   
-  // ✅ Register the IPC handler BEFORE `app.whenReady()`
   ipcMain.handle('generate-excel', async (event, data) => {
-    console.log("✅ Received request to generate Excel:", data);
-    return generateExcel(data);
+
+    const { filePath } = await dialog.showSaveDialog({
+      title: 'Save Excel File',
+      defaultPath: 'analysis.xlsx',
+      filters: [{ name: 'Excel Files', extensions: ['xlsx'] }],
+    });
+  
+    if (filePath) {
+      const result = generateExcel(data, filePath); // Pass filePath to your function
+      return result;
+    } else {
+      return { error: 'User canceled file selection' };
+    }
   });
-
-  console.log("✅ IPC handler for 'generate-excel' is registered");
-
   
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
