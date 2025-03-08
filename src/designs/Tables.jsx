@@ -69,156 +69,156 @@ export const FUNDAMENTAL_ANALYSIS_TYPE1 = {
         [
             {content:'Lagging Indicators', rowSpan:'13', class:'upside-down'},
             {content:'Interest rate', class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
 
         ],
         [
             {content:'GDP Growth Rate',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Stock Market',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Current Account',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Balance of trade (BOT)',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'CPI',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'PPI',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'PCE',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'NFP',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Unemployment Rate',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Retail Sales',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Monetary Policy',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Financial Policy',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content: 'Coincident Indicators', rowSpan:'5', class:'upside-down'},
             {content:'GDP Growth Rate',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'CPI',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'PPI',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Unemployment Rate',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Retail Sales',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content: 'Leading Indicators', rowSpan:'6', class:'upside-down'},
             {content:'PMI',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'CCI',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'ISM',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Unemployment Claims',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Crude Oil Stock',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content:'Natural Gas Stock',  class:'second-layer p-0'},
-            {content:'', colSpan:'2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'cmp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0'}
+            {content:'', colSpan:'2', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'cmp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'}
         ],
         [
             {content: 'Result & Summary Section Part', class:'upside-down'},
             {content:'Additional Note',  class:'second-layer p-0'},
-            {content:'', colSpan:'3', type: 'inp-textarea', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , type: 'inp-textarea', class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan:'3', type: 'inp-textarea', colId: 0, class: 'p-0', style: {position: 'relative'}},
+            {content:'' , type: 'inp-textarea', colId: 1, class: 'p-0', style: {position: 'relative'}},
         ],
         [
             {content: 'News', rowSpan:'8', class:'upside-down'},
@@ -228,50 +228,50 @@ export const FUNDAMENTAL_ANALYSIS_TYPE1 = {
             {content: 'Result', style: {width: '130px'}},
         ],
         [
-            {content:'',  class:'second-layer p-0', type: 'inp', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'', colSpan: '2' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'',  class:'second-layer p-0', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 1, class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan: '2' , type: 'inp', colId: 2, class: 'p-0', style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 3, class: 'p-0', style: {position: 'relative'}},
         ],
         [
-            {content:'',  class:'second-layer p-0', type: 'inp', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'', colSpan: '2' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'',  class:'second-layer p-0', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 1, class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan: '2' , type: 'inp', colId: 2, class: 'p-0', style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 3, class: 'p-0', style: {position: 'relative'}},
         ],
         [
-            {content:'',  class:'second-layer p-0', type: 'inp', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'', colSpan: '2' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'',  class:'second-layer p-0', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 1, class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan: '2' , type: 'inp', colId: 2, class: 'p-0', style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 3, class: 'p-0', style: {position: 'relative'}},
         ],
         [
-            {content:'',  class:'second-layer p-0', type: 'inp', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'', colSpan: '2' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'',  class:'second-layer p-0', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 1, class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan: '2' , type: 'inp', colId: 2, class: 'p-0', style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 3, class: 'p-0', style: {position: 'relative'}},
         ],
         [
-            {content:'',  class:'second-layer p-0', type: 'inp', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'', colSpan: '2' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'',  class:'second-layer p-0', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 1, class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan: '2' , type: 'inp', colId: 2, class: 'p-0', style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 3, class: 'p-0', style: {position: 'relative'}},
         ],
         [
-            {content:'',  class:'second-layer p-0', type: 'inp', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'', colSpan: '2' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'',  class:'second-layer p-0', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 1, class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan: '2' , type: 'inp', colId: 2, class: 'p-0', style: {position: 'relative'}},
+            {content:'' , type: 'inp', colId: 3, class: 'p-0', style: {position: 'relative'}},
         ],
         [
             {content:'Additional Note',  class:'second-layer p-0 py-4'},
-            {content:'', colSpan:'4' , type: 'inp-textarea', class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan:'4' , type: 'inp-textarea', colId: 0, class: 'p-0', style: {position: 'relative'}},
         ],
         [
             {content: 'Result & Summary Section Part', class:'upside-down'},
             {content:'Final Analysis',  class:'second-layer p-0'},
-            {content:'', type: 'inp-textarea', class: 'p-0', style: {position: 'relative'}},
-            {content:'', colSpan:'4', type: 'inp-textarea', class: 'p-0', style: {position: 'relative'}},
+            {content:'', type: 'inp-textarea', colId: 0, class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan:'4', type: 'inp-textarea', colId: 1, class: 'p-0', style: {position: 'relative'}},
         ],
     ]
 }
@@ -283,82 +283,82 @@ export const FUNDAMENTAL_ANALYSIS_TYPE2 = {
         [
             {content:'Macroeconomics indicators ', rowSpan:'13', class:'upside-down'},
             {content:'Interest rate', class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
 
         ],
         [
             {content:'GDP',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'Capital Flow',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'Stock Market',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'Balance of trade (BOT)',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'CPI',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'PPI',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'PCE',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'NFP',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'Unemployment Rate',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'Retail Sales',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'Monetary Policy',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content:'Financial Policy',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', style:{position: 'relative', width: '30px'}},
-            {content:'', colSpan: '4', type: 'inp', class: 'p-0'}
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 0},
+            {content:'', colSpan: '1', type: 'cmp', class: 'p-0', colId: 1, style:{position: 'relative', width: '30px'}},
+            {content:'', colSpan: '4', type: 'inp', class: 'p-0', colId: 2}
         ],
         [
             {content: 'Companies', rowSpan:'13', class:'upside-down'},
@@ -374,140 +374,140 @@ export const FUNDAMENTAL_ANALYSIS_TYPE2 = {
         ],
         [
             {content:'Goldman Sachs Group, Inc',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0', style:{position: 'relative'}},
-            {content:'', type: 'inp', class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 0, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 1, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 2, class: 'p-0', style:{position: 'relative'}},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 4, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 5, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 6, class: 'p-0', style:{position: 'relative'}},
+            {content:'', type: 'inp', colId: 7, class: 'p-0', style:{position: 'relative'}},
         ],
         [
             {content:'UnitedHealth Group Inc',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content:'Microsoft Corporation',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content:'Home Depot, Inc',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content:'Visa Inc',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content:'PMI',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content:'Caterpillar Inc',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content:'Salesforce Inc',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content:'McDonald\'s Corp',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content:'American Express Co',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content:'JPMorgan Chase & Co',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content:'Goldman Sachs Group, Inc',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', colSpan: '2', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
-            {content:'', type: 'inp', class: 'p-0'},
+            {content:'', type: 'inp', colId: 0, class: 'p-0'},
+            {content:'', type: 'inp', colId: 1, class: 'p-0'},
+            {content:'', type: 'inp', colId: 2, class: 'p-0'},
+            {content:'', colSpan: '2', type: 'inp', colId: 3, class: 'p-0'},
+            {content:'', type: 'inp', colId: 4, class: 'p-0'},
+            {content:'', type: 'inp', colId: 5, class: 'p-0'},
+            {content:'', type: 'inp', colId: 6, class: 'p-0'},
+            {content:'', type: 'inp', colId: 7, class: 'p-0'},
         ],
         [
             {content: 'Result & Summary Section Part', class:'upside-down'},
             {content:'Additional Note',  class:'second-layer p-1 py-2'},
-            {content:'', colSpan:'9', type: 'inp-textarea', class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan:'9', type: 'inp-textarea', colId: 0, class: 'p-0', style: {position: 'relative'}},
         ],
         [
             {content: 'News', rowSpan:'8', class:'upside-down'},
@@ -517,50 +517,50 @@ export const FUNDAMENTAL_ANALYSIS_TYPE2 = {
             {content: 'Result', colSpan: '4', style: {width: '130px'}},
         ],
         [
-            {content:'' , class:'second-layer p-1 py-2', type: 'inp', style: {position: 'relative'}},
-            {content:'' , colSpan: '2', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '3', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '4', type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'' , class:'second-layer p-1 py-2', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , colSpan: '2', type: 'inp', colId: 1, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '3', type: 'inp', colId: 2, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '4', type: 'inp', colId: 3, class: '', style: {position: 'relative'}},
         ],
         [
-            {content:'' , class:'second-layer p-1 py-2', type: 'inp', style: {position: 'relative'}},
-            {content:'' , colSpan: '2', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '3', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '4', type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'' , class:'second-layer p-1 py-2', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , colSpan: '2', type: 'inp', colId: 1, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '3', type: 'inp', colId: 2, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '4', type: 'inp', colId: 3, class: '', style: {position: 'relative'}},
         ],
         [
-            {content:'' , class:'second-layer p-1 py-2', type: 'inp', style: {position: 'relative'}},
-            {content:'' , colSpan: '2', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '3', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '4', type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'' , class:'second-layer p-1 py-2', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , colSpan: '2', type: 'inp', colId: 1, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '3', type: 'inp', colId: 2, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '4', type: 'inp', colId: 3, class: '', style: {position: 'relative'}},
         ],
         [
-            {content:'' , class:'second-layer p-1 py-2', type: 'inp', style: {position: 'relative'}},
-            {content:'' , colSpan: '2', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '3', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '4', type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'' , class:'second-layer p-1 py-2', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , colSpan: '2', type: 'inp', colId: 1, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '3', type: 'inp', colId: 2, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '4', type: 'inp', colId: 3, class: '', style: {position: 'relative'}},
         ],
         [
-            {content:'' , class:'second-layer p-1 py-2', type: 'inp', style: {position: 'relative'}},
-            {content:'' , colSpan: '2', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '3', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '4', type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'' , class:'second-layer p-1 py-2', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , colSpan: '2', type: 'inp', colId: 1, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '3', type: 'inp', colId: 2, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '4', type: 'inp', colId: 3, class: '', style: {position: 'relative'}},
         ],
         [
-            {content:'' , class:'second-layer p-1 py-2', type: 'inp', style: {position: 'relative'}},
-            {content:'' , colSpan: '2', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '3', type: 'inp', class: 'p-0', style: {position: 'relative'}},
-            {content:'' , colSpan: '4', type: 'inp', class: 'p-0', style: {position: 'relative'}},
+            {content:'' , class:'second-layer p-1 py-2', type: 'inp', colId: 0, style: {position: 'relative'}},
+            {content:'' , colSpan: '2', type: 'inp', colId: 1, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '3', type: 'inp', colId: 2, class: '', style: {position: 'relative'}},
+            {content:'' , colSpan: '4', type: 'inp', colId: 3, class: '', style: {position: 'relative'}},
         ],
         [
             {content:'Additional Note',  class:'second-layer p-1 py-4'},
-            {content:'', colSpan:'9' , type: 'inp-textarea', class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan:'9' , type: 'inp-textarea', colId: 0, class: 'p-0', style: {position: 'relative'}},
         ],
         [
             {content: 'Result & Summary Section Part', class:'upside-down'},
             {content:'Final Analysis',  class:'second-layer p-1 py-2'},
-            {content:'', type: 'inp-textarea', class: 'p-0', style: {position: 'relative'}},
-            {content:'', colSpan:'8', type: 'inp-textarea', class: 'p-0', style: {position: 'relative'}},
+            {content:'', type: 'inp-textarea', colId: 0, class: 'p-0', style: {position: 'relative'}},
+            {content:'', colSpan:'8', type: 'inp-textarea', colId: 1, class: 'p-0', style: {position: 'relative'}},
         ],
     ]
 }

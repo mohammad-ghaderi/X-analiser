@@ -31,7 +31,7 @@ app.whenReady().then(() => {
     });
   
     if (filePath) {
-      const result = generateExcel(data, filePath); // Pass filePath to your function
+      const result = generateExcel(data.data, data.type, filePath); // Pass filePath to your function
       return result;
     } else {
       return { error: 'User canceled file selection' };

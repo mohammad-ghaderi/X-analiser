@@ -71,18 +71,13 @@ const Analysis = () => {
 
     // Function to call backend API to generate Excel file
     const generateExcel = async () => {
-        // const data = [
-        //     ["John Doe", 25, "USA"],
-        //     ["Alice", 30, "UK"],
-        //     ["Bob", 28, "Canada"]
-        // ];
 
         console.log('t');
         console.log(tables);
         
 
         try {
-            const result = await window.electron.generateExcel(tables);
+            const result = await window.electron.generateExcel({data: tables, type: categories[categoryIdx]});
             // setFilePath(result.filePath);  // Display file path or use it for further logic
             console.log('result');
             console.log(result);
@@ -111,8 +106,7 @@ const Analysis = () => {
     useEffect(() => {
         if (fr === 0) return;
         setTables({});
-        console.log('clear')
-            ;
+        console.log('clear');
     }, [categoryIdx, targetIdx]);
 
     useEffect(() => {

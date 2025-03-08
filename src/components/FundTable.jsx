@@ -49,11 +49,11 @@ const FundTable1 = ({fr}) => {
         setSecondIdx(idx);
     }
 
-    const compareHandler = (index) => {
-        let newCompare = (data[index] !== undefined && data[index][2] !== undefined) ? data[index][2] : -1;
+    const compareHandler = (index, idx=1) => {
+        let newCompare = (data[index] !== undefined && data[index][idx] !== undefined) ? data[index][idx] : -1;
         newCompare++;
         newCompare %= 3;        
-        dataHandler(index, 2, newCompare);
+        dataHandler(index, idx, newCompare);
     }
 
     useEffect(() => {
@@ -111,12 +111,12 @@ const FundTable1 = ({fr}) => {
                             >
                                 {td.content && td.content}
                                 {td.type === 'cmp' && 
-                                    <Button variant={`${data[index] !== undefined && data[index][2] !== undefined ? 'outline-': ''}secondary`}
+                                    <Button variant={`${data[index] !== undefined && data[index][td.colId] !== undefined ? 'outline-': ''}secondary`}
                                             className='p-2 border-0 border-0' 
                                             style={{height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, fontSize: '1.1rem'}}
                                             onClick={() => compareHandler(index)}
                                     >   
-                                        <i className={`fa-solid ${symbols[((data[index] !== undefined && data[index][2] !== undefined) ? data[index][2] : 3)]}`}></i>
+                                        <i className={`fa-solid ${symbols[((data[index] !== undefined && data[index][td.colId] !== undefined) ? data[index][td.colId] : 3)]}`}></i>
                                     </Button>
                                 }
                                 {td.type === 'inp' && 
@@ -125,8 +125,8 @@ const FundTable1 = ({fr}) => {
                                         aria-label="Small"
                                         aria-describedby="inputGroup-sizing-lg"
                                         style={{height: '100%'}}
-                                        onChange={(e) => dataHandler(index, idx, e.target.value)}
-                                        value={(data[index] !== undefined && data[index][idx] !== undefined) ? data[index][idx] : ''}
+                                        onChange={(e) => dataHandler(index, td.colId, e.target.value)}
+                                        value={(data[index] !== undefined && data[index][td.colId] !== undefined) ? data[index][td.colId] : ''}
                                         />
                                     </InputGroup>
                                 }
@@ -137,8 +137,8 @@ const FundTable1 = ({fr}) => {
                                         aria-label="Small"
                                         aria-describedby="inputGroup-sizing-lg"
                                         style={{height: '100%', resize: 'none'}}
-                                        onChange={(e) => dataHandler(index, idx, e.target.value)}
-                                        value={(data[index] !== undefined && data[index][idx] !== undefined) ? data[index][idx] : ''}
+                                        onChange={(e) => dataHandler(index, td.colId, e.target.value)}
+                                        value={(data[index] !== undefined && data[index][td.colId] !== undefined) ? data[index][td.colId] : ''}
                                         />
                                     </InputGroup>
                                 }
@@ -175,11 +175,13 @@ const FundTable2 = ({fr}) => {
         setTables(newTables);
     }
 
-    const compareHandler = (index) => {
-        let newCompare = (data[index] !== undefined && data[index][2] !== undefined) ? data[index][2] : -1;
+    const compareHandler = (index, idx=1) => {
+        console.log('data')
+        console.log(data)
+        let newCompare = (data[index] !== undefined && data[index][idx] !== undefined) ? data[index][idx] : -1;
         newCompare++;
         newCompare %= 3;        
-        dataHandler(index, 2, newCompare);
+        dataHandler(index, idx, newCompare);
     }
 
     useEffect(() => {
@@ -208,34 +210,34 @@ const FundTable2 = ({fr}) => {
                             >
                                 {td.content && td.content}
                                 {td.type === 'cmp' && 
-                                    <Button variant={`${data[index] !== undefined && data[index][2] !== undefined ? 'outline-': ''}secondary`}
+                                    <Button variant={`${data[index] !== undefined && data[index][td.colId] !== undefined ? 'outline-': ''}secondary`}
                                             className='p-2 border-0 border-0' 
                                             style={{height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, fontSize: '1.1rem'}}
                                             onClick={() => compareHandler(index)}
                                     >   
-                                        <i className={`fa-solid ${symbols[((data[index] !== undefined && data[index][2] !== undefined) ? data[index][2] : 3)]}`}></i>
+                                        <i className={`fa-solid ${symbols[((data[index] !== undefined && data[index][td.colId] !== undefined) ? data[index][td.colId] : 3)]}`}></i>
                                     </Button>
                                 }
                                 {td.type === 'inp' && 
-                                    <InputGroup className="" style={{position: 'absolute', height: '100%', top: '0', left: '0'}}>
+                                    <InputGroup className="" style={{position: 'absolute', height: '100%', top: '0', left: '0', padding: '0'}}>
                                         <Form.Control
                                         aria-label="Small"
                                         aria-describedby="inputGroup-sizing-lg"
-                                        style={{height: '100%'}}
-                                        onChange={(e) => dataHandler(index, idx, e.target.value)}
-                                        value={(data[index] !== undefined && data[index][idx] !== undefined) ? data[index][idx] : ''}
+                                        style={{height: '100%', padding: '.5rem'}}
+                                        onChange={(e) => dataHandler(index, td.colId, e.target.value)}
+                                        value={(data[index] !== undefined && data[index][td.colId] !== undefined) ? data[index][td.colId] : ''}
                                         />
                                     </InputGroup>
                                 }
                                 {td.type === 'inp-textarea' && 
-                                    <InputGroup className="" style={{ position: 'absolute', left: '0', top: '0', height: '100%'}}>
+                                    <InputGroup className="" style={{ position: 'absolute', left: '0', top: '0', height: '100%', padding: '0'}}>
                                         <Form.Control
                                         as="textarea"
                                         aria-label="Small"
                                         aria-describedby="inputGroup-sizing-lg"
-                                        style={{height: '100%', resize: 'none'}}
-                                        onChange={(e) => dataHandler(index, idx, e.target.value)}
-                                        value={(data[index] !== undefined && data[index][idx] !== undefined) ? data[index][idx] : ''}
+                                        style={{height: '100%', resize: 'none', padding: '.5rem'}}
+                                        onChange={(e) => dataHandler(index, td.colId, e.target.value)}
+                                        value={(data[index] !== undefined && data[index][td.colId] !== undefined) ? data[index][td.colId] : ''}
                                         />
                                     </InputGroup>
                                 }
