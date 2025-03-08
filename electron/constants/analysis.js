@@ -1,0 +1,9 @@
+const TECHNICAL = 'TECHNICAL';
+const FUNDAMENTAL = 'FUNDAMENTAL';
+const SENTIMENT = 'SENTIMENT';
+
+module.exports = {
+    TECHNICAL,
+    FUNDAMENTAL,
+    SENTIMENT
+}

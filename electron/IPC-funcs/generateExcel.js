@@ -1,41 +1,57 @@
 const path = require('path');
 const fs = require('fs');
-const XLSX = require('xlsx')
+const ExcelJS = require("exceljs");
+const { TECHNICAL, FUNDAMENTAL, SENTIMENT } = require('../constants/analysis');
 
-const generateExcel = (data, savePath) => {
+const TECH_COL_LETTER = ['D', 'E', 'F', 'G', 'H', 'I'];
+const TECH_SYMBOLS = ['', 'L', 'R', 'S'];
+const TECH_BODY_ROW_START = 4;
+const TECH_RES_ROW_START = 39;
+
+const generateExcel = async (data, savePath) => {
     if (!savePath) {
-        throw new Error('No save path provided');
+        throw new Error("No save path provided");
     }
 
-    const templatePath = path.join(__dirname, '..', 'templates', 'template.xlsx');
+    const templatePath = path.join(__dirname, "..", "templates", "Stocks.xlsx");
 
     if (!fs.existsSync(templatePath)) {
-        throw new Error('Template file does not exist');
+        throw new Error("Template file does not exist");
     }
 
-    const workbook = XLSX.readFile(templatePath);
-    const sheetName = workbook.SheetNames[0];
-    const worksheet = workbook.Sheets[sheetName];
+    // Copy template (keeps original formatting)
+    fs.copyFileSync(templatePath, savePath);
 
-    if (!worksheet) {
-        throw new Error('Worksheet is missing in the template');
+    // Open copied file with ExcelJS (to retain formatting)
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.readFile(savePath);
+    const worksheetTechnical = workbook.worksheets[0];
+    const worksheetFundamental = workbook.worksheets[0];
+    const worksheetSentiment = workbook.worksheets[0];
+
+    if (!worksheetTechnical) {
+        throw new Error("Worksheet is missing in the template");
     }
 
-    data.forEach((row, rowIndex) => {
-        row.forEach((cell, colIndex) => {
-            const cellRef = XLSX.utils.encode_cell({ r: rowIndex + 1, c: colIndex });
-            worksheet[cellRef] = { t: 's', v: cell };
+    // Modify values while keeping formatting
+    if (data[TECHNICAL] !== undefined) {
+        data[TECHNICAL].body.forEach((row, index) => {
+            row.forEach((col, idx) => {
+                worksheetTechnical.getCell(`${TECH_COL_LETTER[idx]}${index + TECH_BODY_ROW_START}`).value = TECH_SYMBOLS[col];
+            });
         });
-    });
 
-    const range = XLSX.utils.decode_range(worksheet['!ref'] || 'A1');
-    range.e.r = Math.max(range.e.r, data.length);
-    range.e.c = Math.max(range.e.c, data[0].length);
-    worksheet['!ref'] = XLSX.utils.encode_range(range);
+        data[TECHNICAL].res.forEach((row, index) => {
+            row.forEach((col, idx) => {
+                worksheetTechnical.getCell(`${TECH_COL_LETTER[idx]}${index + TECH_RES_ROW_START}`).value = col;
+            });
+        });
+    }
 
-    XLSX.writeFile(workbook, savePath);
+    // Save the modified file
+    await workbook.xlsx.writeFile(savePath);
 
-    return { message: 'Excel file created successfully', filePath: savePath };
-}
+    return { message: "Excel file created successfully", filePath: savePath };
+};
 
 module.exports = { generateExcel };

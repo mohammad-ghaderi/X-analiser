@@ -71,14 +71,18 @@ const Analysis = () => {
 
     // Function to call backend API to generate Excel file
     const generateExcel = async () => {
-        const data = [
-            ["John Doe", 25, "USA"],
-            ["Alice", 30, "UK"],
-            ["Bob", 28, "Canada"]
-        ];
+        // const data = [
+        //     ["John Doe", 25, "USA"],
+        //     ["Alice", 30, "UK"],
+        //     ["Bob", 28, "Canada"]
+        // ];
+
+        console.log('t');
+        console.log(tables);
+        
 
         try {
-            const result = await window.electron.generateExcel(data);
+            const result = await window.electron.generateExcel(tables);
             // setFilePath(result.filePath);  // Display file path or use it for further logic
             console.log('result');
             console.log(result);
