@@ -20,6 +20,9 @@ const FUND_MAIN_COL_LETTER = [
     ['C', 'E', 'G', 'J'],
 ]
 
+const SENT_COL_LETTER = ['C'];
+const SENT_COL_ROW_START = 2;
+
 
 const generateExcel = async (data, type, savePath) => {
     if (!savePath) {
@@ -116,6 +119,16 @@ const generateExcel = async (data, type, savePath) => {
             }
         }
     }
+
+    if (data[SENTIMENT] !== undefined) {
+        data[SENTIMENT].body.forEach((row, index) => {
+            worksheetSentiment
+                .getCell(`${SENT_COL_LETTER[0]}${index + SENT_COL_ROW_START}`)
+                .value = TECH_SYMBOLS[row[0]];
+            
+        });
+    }
+
 
     // Save the modified file
     await workbook.xlsx.writeFile(savePath);

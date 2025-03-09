@@ -3,6 +3,7 @@ import {Table} from 'react-bootstrap';
 import {TablesContext} from '../contexts/TablesContext'
 
 import "../styles/table.css";
+import { TECHNICAL } from '../constants/analysis';
 
 const SelectionLRS = ({template, type, fr}) => {
 
@@ -10,12 +11,12 @@ const SelectionLRS = ({template, type, fr}) => {
     const [techData, setTechData] = useState(
         tables[type] !== undefined ? 
         tables[type].body : 
-        Array.from({ length: template.body.length }, () => Array(6).fill(0))
+        Array.from({ length: template.body.length }, () => Array(template.body[0].count).fill(0))
     );
     const [resTd, setResTd] = useState(
         tables[type] !== undefined ? 
         tables[type].res : 
-        Array.from({ length: 4}, () => Array(6).fill(''))
+        Array.from({ length: 4}, () => Array(template.body[0].count).fill(''))
     );
 
 
@@ -27,17 +28,23 @@ const SelectionLRS = ({template, type, fr}) => {
         newData[index][idx] = e.target.selectedIndex;
         setTechData(newData);
         
-        calculateResult();
+        if (type == TECHNICAL) calculateResult();
 
         let newTables = {...tables};
         if (tables[type] === undefined) {
-            newTables[type] = {
-                body: [...newData],
-                res: [...resTd]
+            if (type == TECHNICAL) {
+                newTables[type] = {
+                    body: [...newData],
+                    res: [...resTd]
+                }
+            } else {
+                newTables[type] = {
+                    body: [...newData],
+                }
             }
         } else {
             newTables[type].body = [...newData];
-            newTables[type].res = [...resTd];
+            if (type === TECHNICAL) newTables[type].res = [...resTd];
         }
         setTables(newTables);
     }
@@ -103,11 +110,10 @@ const SelectionLRS = ({template, type, fr}) => {
 
     useEffect(() => {
         if (tables[type] === undefined) {
-            setTechData(Array.from({ length: template.body.length }, () => Array(6).fill(0)))
-            setResTd(Array.from({ length: 4}, () => Array(6).fill('')));
+            setTechData(Array.from({ length: template.body.length }, () => Array(template.body[0].count).fill(0)))
+            setResTd(Array.from({ length: 4}, () => Array(template.body[0].count).fill('')));
         } 
-        calculateResult();
-        
+        if (type === TECHNICAL) calculateResult();
     }, [fr])
 
   return (
