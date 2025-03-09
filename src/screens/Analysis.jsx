@@ -69,15 +69,13 @@ const Analysis = () => {
         setTargetIdx(idx);
     }
 
-    // Function to call backend API to generate Excel file
-    const generateExcel = async () => {
-
-        console.log('t');
+    const exportPdf = async (e) => {
+        e.preventDefault();
+        console.log('tables');
         console.log(tables);
-        
 
         try {
-            const result = await window.electron.generateExcel({data: tables, type: categories[categoryIdx]});
+            const result = await window.electron.generatePDF({data: tables, type: categories[categoryIdx]});
             // setFilePath(result.filePath);  // Display file path or use it for further logic
             console.log('result');
             console.log(result);
@@ -86,21 +84,21 @@ const Analysis = () => {
           } catch (error) {
             console.error(error);
         }
-    };
-
-    const exportPdf = (e) => {
-        e.preventDefault();
-        console.log('tables');
-        console.log(tables);
 
     }
 
     const exportExcel = async (e) => {
         e.preventDefault();
-        console.log('tables');
-        console.log(tables);
 
-        await generateExcel();
+        try {
+            const result = await window.electron.generateExcel({data: tables, type: categories[categoryIdx]});
+            // setFilePath(result.filePath);  // Display file path or use it for further logic
+            console.log('result');
+            console.log(result);
+            
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     useEffect(() => {

@@ -5,12 +5,7 @@ contextBridge.exposeInMainWorld("api", {
 });
 
 
-const x = () => {
-    console.log('hello');
-    return 'How.........'
-}
-
 contextBridge.exposeInMainWorld('electron', {
-    generateExcel: (data) => ipcRenderer.invoke('generate-excel', data),  // Call IPC from renderer
-    xxx: () => x(),  // Call IPC from renderer
+    generateExcel: (data) => ipcRenderer.invoke('generate-excel', data),
+    generatePDF: (data) => ipcRenderer.invoke('generate-pdf', data),
 });
