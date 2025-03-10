@@ -58,7 +58,8 @@
 			"output": "release"
 		},
 		"win": {
-			"target": "nsis"
+			"target": "nsis",
+			"icon": "public/logo.ico"
 		}
 	}
 }
