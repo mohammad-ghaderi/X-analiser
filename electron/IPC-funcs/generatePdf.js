@@ -3,6 +3,7 @@ const os = require('os');
 const { exec } = require('child_process');
 const path = require('path');
 const fillExcel = require('./fillExcel');
+const { app } = require("electron");
 
 // Function to copy template to a temporary file and convert it to PDF
 const generatePDF = async (data, type, pdfOutputPath) => {
@@ -42,13 +43,20 @@ const generatePDF = async (data, type, pdfOutputPath) => {
 
 // Convert Excel to PDF using PowerShell
 const convertExcelToPDF = (excelPath, pdfPath, callback) => {
-    // Path to your PowerShell script
-    const scriptPath = path.join(__dirname, 'converter.ps1');
+    const tempScriptPath = path.join(app.getPath("temp"), "converter.vbs");
+    const vbsContent = `
+    Set objExcel = CreateObject("Excel.Application")
+    objExcel.Visible = False
+    Set objWorkbook = objExcel.Workbooks.Open(WScript.Arguments(0))
+    objWorkbook.ExportAsFixedFormat 0, WScript.Arguments(1)
+    objWorkbook.Close False
+    objExcel.Quit
+    `;
 
-    // Construct the PowerShell command with converted paths
-    const command = `powershell -ExecutionPolicy Bypass -File "${scriptPath}" -excelPath "${excelPath}" -pdfPath "${pdfPath}"`;
+    fs.writeFileSync(tempScriptPath, vbsContent, "utf-8");
 
-    console.log(command)
+    // Execute the script using cscript.exe
+    const command = `cscript //Nologo "${tempScriptPath}" "${excelPath}" "${pdfPath}"`;
 
     exec(command, (error, stdout, stderr) => {
         if (error) {
@@ -58,7 +66,7 @@ const convertExcelToPDF = (excelPath, pdfPath, callback) => {
         }
         console.log('PDF generated successfully:', pdfPath);
         console.log('stdout:', stdout);
-        if (callback) callback();
+        // if (callback) callback();
     });
 }
 
