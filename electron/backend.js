@@ -1,19 +1,21 @@
-import express from "express";
-// import cors from "cors";
-const userRoutes = require("./Routes/userRoute.js"); // Import the excel routes
+const express = require('express');
+const cors = require('cors');
+const analysisRoute = require('./Routes/analysisRoute.js');
 const PORT = 3001;
 
 const backend = express();
 backend.use(express.json());
-// backend.use(cors());
+
+// backend.use(cors({ origin: "http://localhost:5173" }));
+backend.use(cors());
 
 // Sample API Route: Get all users
 
-backend.use('/users', userRoutes);
+backend.use('/analysis', analysisRoute);
 
 // Start the server on port 3001
 backend.listen(PORT, () => {
   console.log("Backend running on http://localhost:3001")
 });
 
-export default backend;
+module.exports = backend;

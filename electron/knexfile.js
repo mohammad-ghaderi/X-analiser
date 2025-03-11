@@ -1,5 +1,5 @@
-import path from "path";
-import { app } from "electron";
+const { app } = require('electron');
+const path = require('path');
 
 const dbPath = path.join(app.getPath("userData"), "database.sqlite");
 
@@ -11,4 +11,4 @@ const knexConfig = {
   useNullAsDefault: true, // Required for SQLite
 };
 
-export default knexConfig;
+module.exports = knexConfig;

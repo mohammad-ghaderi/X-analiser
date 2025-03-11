@@ -1,9 +1,11 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron/main')
-const { generateExcel } = require('./IPC-funcs/generateExcel');
 const path = require('node:path');
+const { spawn } = require('child_process');
+const { generateExcel } = require('./IPC-funcs/generateExcel');
 const { generatePDF } = require('./IPC-funcs/generatePdf');
 
 let mainWindow;
+let backendProcess;
 
 const createWindow = () => {
     mainWindow = new BrowserWindow({
@@ -17,13 +19,14 @@ const createWindow = () => {
         },
     });
 
-    // mainWindow.loadURL("http://localhost:5173"); // React Dev Server
-    mainWindow.loadURL(`file://${path.join(__dirname, '../dist/index.html')}`);
+    mainWindow.loadURL("http://localhost:5173"); // React Dev Server
+    // mainWindow.loadURL(`file://${path.join(__dirname, '../dist/index.html')}`);
 }
 
 
 
 app.whenReady().then(() => {
+    startBackend(); // Start the backend
     createWindow();
 
     ipcMain.handle('generate-excel', async (event, data) => {
@@ -62,4 +65,30 @@ app.whenReady().then(() => {
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow();
     });
+});
+
+// Function to start the Express backend
+const startBackend = () => {
+    const backendPath = path.join(__dirname, "backend.js"); // ✅ Correct path
+
+  backendProcess = spawn(process.execPath, [backendPath], {
+    cwd: __dirname,
+    stdio: "inherit",
+    shell: false 
+  });
+
+    backendProcess.on('error', (err) => {
+        console.error("Failed to start backend:", err);
+    });
+
+    backendProcess.on('exit', (code) => {
+        console.log(`Backend exited with code ${code}`);
+    });
+}
+
+
+// Stop backend when Electron closes
+app.on('window-all-closed', () => {
+    if (backendProcess) backendProcess.kill();
+    app.quit();
 });
