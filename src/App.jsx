@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomeScreen from './screens/HomeScreen';
@@ -12,19 +12,17 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const App = () => {
 
-    useEffect(() => {
-        
-    }, []);
+    const [menuIdx, setMenuIdx] = useState(0);
 
     return (
         <HashRouter>
-            <Navbar />
+            <Navbar menuIdx={menuIdx} setMenuIdx={setMenuIdx}/>
             <div style={{paddingLeft: '4.5rem'}}>
                 <Routes>
                     <Route path="/" element={<HomeScreen />} />
                     <Route path="/analysis" element={<Analysis />} />
                     <Route path="/profile" element={<Profile />} />
-                    <Route path="/history" element={<History />} />
+                    <Route path="/history" element={<History setMenuIdx={setMenuIdx}/>} />
                 </Routes>
             </div>
         </HashRouter>

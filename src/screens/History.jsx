@@ -1,15 +1,35 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { Container, Row, Table } from 'react-bootstrap'
+import React, { useContext, useEffect, useState } from 'react'
+import { ButtonGroup, Button, Container, Row, Table } from 'react-bootstrap'
+import { TablesContext } from '../contexts/TablesContext';
+import { useNavigate } from 'react-router-dom';
 
-const History = () => {
+const History = ({setMenuIdx}) => {
 
     const [analysisData, setAnalysisData] = useState([]);
+    const {tables, setTables} = useContext(TablesContext);
+
+    const navigate = useNavigate();
+
+    const selectHistoryHandler = (index) => {
+        setTables(analysisData[index].data);
+        setMenuIdx(1);
+        navigate('/analysis');
+    }
+
+    const deleteHandler = async (e, index) => {
+        e.stopPropagation();
+        try {
+            const {data} = await axios.delete(`http://localhost:3001/analysis:${index}`);
+            setAnalysisData(data);
+        } catch (err) {
+            console.log('Error while removing anslysis data.');
+        }
+    }
 
     const fetchData = async () => {
         try {
             const {data} = await axios.get("http://localhost:3001/analysis");
-            console.log(data);
             setAnalysisData(data);
         } catch (err) {
             console.log('Error while fetching anslysis data.');
@@ -24,22 +44,39 @@ const History = () => {
   return (
     <Container>
         <Row className='mt-5'>
-            <Table striped>
+            <Table striped hover>
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>name</th>
-                        <th>created at</th>
-                        <th>Username</th>
+                        <th>category</th>
+                        <th>type</th>
+                        <th>created</th>
+                        <th>last edit</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     {analysisData.map((tr, index) => (
-                        <tr>
+                        <tr key={index} onClick={() => selectHistoryHandler(index)}>
                             <td>{tr.id}</td>
-                            <td>{tr.name}</td>
+                            <td>{tr.category}</td>
+                            <td>{tr.type}</td>
                             <td>{tr.created_at}</td>
-                            <td>{tr.last_edit}</td>
+                            <td>{tr.last_edited}</td>
+                            <td style={{width: '100px'}}>
+                                <ButtonGroup>
+                                    <i className="fa-solid fa-trash-can text-danger px-1"
+                                        style={{fontSize: '1.5rem'}}
+                                        onClick={(e) => deleteHandler(e, index)}
+                                    ></i>
+                                    <i className="fa-solid fa-file-pdf text-wanring px-1"
+                                        style={{fontSize: '1.5rem'}}
+                                    ></i>
+                                    <i className="fa-solid fa-file-csv text-success px-1"
+                                        style={{fontSize: '1.5rem'}}
+                                    ></i>
+                                </ButtonGroup>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

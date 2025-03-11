@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react'
 import {
     Row,
+    Button,
     ButtonGroup,
     ToggleButton,
     Dropdown,
     Form,
 } from 'react-bootstrap';
+import axios from 'axios';
 
 import TechnicalAnalisis from '../components/TechnicalAnalisis';
 import FundamentalAnalisis from '../components/FundamentalAnalisis';
@@ -19,8 +21,6 @@ const Analysis = () => {
     const [categoryIdx, setCategoryIdx] = useState(0);
     const [targetIdx, setTargetIdx] = useState(0);
     const [fr, sfr] = useState(0);
-
-    const [filePath, setFilePath] = useState("");
 
     const buttonTabs = ['Technical', 'Fundamental', 'Sentiment'];
     const { tables, setTables } = useContext(TablesContext);
@@ -67,6 +67,18 @@ const Analysis = () => {
 
     const targetHandler = (idx) => {
         setTargetIdx(idx);
+    }
+
+    const saveHandler = async () => {
+        try {
+            const {data} = await axios.post("http://localhost:3001/analysis", {
+                data: tables,
+                type: target[categories[categoryIdx]][targetIdx],
+                category: categories[categoryIdx],
+            });
+        } catch (err) {
+            console.log('Error while adding data to database.');
+        }
     }
 
     const exportPdf = async (e) => {
@@ -130,6 +142,16 @@ const Analysis = () => {
                                 {btn}
                             </ToggleButton>
                         ))}
+                        <Dropdown className='d-md-none'>
+                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                Export
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item onClick={(e) => exportPdf(e)}>export PDF</Dropdown.Item>
+                                <Dropdown.Item onClick={(e) => exportExcel(e)}>export excel</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </ButtonGroup>
 
                     <div className='top-left-button-wrapper'>
@@ -155,7 +177,7 @@ const Analysis = () => {
 
 
                         <ButtonGroup>
-                            <Dropdown>
+                            <Dropdown className='d-none d-md-block'>
                                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                                     Export
                                 </Dropdown.Toggle>
@@ -165,11 +187,10 @@ const Analysis = () => {
                                     <Dropdown.Item onClick={(e) => exportExcel(e)}>export excel</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
+                            <Button variant="dark" onClick={() => saveHandler()}>Save</Button>
+                            <Button variant="primary">New</Button>
                         </ButtonGroup>
-
                     </div>
-
-
                 </div>
             </Row>
             <Row className='g-0'>
