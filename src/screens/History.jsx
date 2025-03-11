@@ -1,18 +1,22 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
-import { ButtonGroup, Button, Container, Row, Table } from 'react-bootstrap'
+import { ButtonGroup, Container, Row, Table } from 'react-bootstrap'
 import { TablesContext } from '../contexts/TablesContext';
 import { useNavigate } from 'react-router-dom';
+import { CATEGORY, TARGET } from '../designs/types';
 
 const History = ({setMenuIdx}) => {
 
     const [analysisData, setAnalysisData] = useState([]);
-    const {tables, setTables} = useContext(TablesContext);
+    const {setTables, setCategoryIdx, setTargetIdx  } = useContext(TablesContext);
 
     const navigate = useNavigate();
 
     const selectHistoryHandler = (index) => {
         setTables(analysisData[index].data);
+        setCategoryIdx(analysisData[index].category)
+        console.log('xx', analysisData[index])
+        setTargetIdx(analysisData[index].type)
         setMenuIdx(1);
         navigate('/analysis');
     }
@@ -48,6 +52,7 @@ const History = ({setMenuIdx}) => {
             <Table striped hover>
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>id</th>
                         <th>category</th>
                         <th>type</th>
@@ -59,9 +64,10 @@ const History = ({setMenuIdx}) => {
                 <tbody>
                     {analysisData.map((tr, index) => (
                         <tr key={index} onClick={() => selectHistoryHandler(index)}>
+                            <td>{index + 1}</td>
                             <td>{tr.id}</td>
-                            <td>{tr.category}</td>
-                            <td>{tr.type}</td>
+                            <td>{CATEGORY[Number(tr.category)]}</td>
+                            <td>{TARGET[CATEGORY[Number(tr.category)]][Number(tr.type)]}</td>
                             <td>{tr.created_at}</td>
                             <td>{tr.last_edited}</td>
                             <td style={{width: '100px'}}>

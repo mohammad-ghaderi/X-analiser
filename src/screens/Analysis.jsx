@@ -13,52 +13,26 @@ import TechnicalAnalisis from '../components/TechnicalAnalisis';
 import FundamentalAnalisis from '../components/FundamentalAnalisis';
 import SentimentAnalisis from '../components/SentimentAnalisis';
 import { TablesContext } from '../contexts/TablesContext';
+import {TARGET, CATEGORY} from '../designs/types'
 import '../styles/analysis.css';
 
 const Analysis = () => {
 
     const [tabIdx, setTabIdx] = useState(0);
-    const [categoryIdx, setCategoryIdx] = useState(0);
-    const [targetIdx, setTargetIdx] = useState(0);
+    // const [categoryIdx, setCategoryIdx] = useState(0);
+    // const [targetIdx, setTargetIdx] = useState(0);
+
+    const {
+        categoryIdx,
+        setCategoryIdx,
+        targetIdx,
+        setTargetIdx
+    } = useContext(TablesContext);
+
     const [fr, sfr] = useState(0);
 
     const buttonTabs = ['Technical', 'Fundamental', 'Sentiment'];
     const { tables, setTables } = useContext(TablesContext);
-    const categories = ['Forex', 'Stocks', 'Commodity', 'Crypto'];
-    const target = {
-        Forex: [
-            'EUR/USD',
-            'GBP/USD',
-            'USD/JPY',
-            'AUD/USD',
-            'USD/CAD',
-            'NZD/USD'
-        ],
-        Stocks: [
-            'AAPL',
-            'TSLA',
-            'AMZN',
-            'GOOGL',
-            'MSFT',
-            'NVDA'
-        ],
-        Commodity: [
-            'Gold',
-            'Silver',
-            'Crude Oil',
-            'Natural Gas',
-            'Copper',
-            'Platinum'
-        ],
-        Crypto: [
-            'BTC/USD',
-            'ETH/USD',
-            'XRP/USD',
-            'LTC/USD',
-            'ADA/USD',
-            'DOGE/USD'
-        ],
-    };
 
     const categoryHandler = (idx) => {
         setCategoryIdx(idx);
@@ -73,8 +47,8 @@ const Analysis = () => {
         try {
             const {data} = await axios.post("http://localhost:3001/analysis", {
                 data: tables,
-                type: target[categories[categoryIdx]][targetIdx],
-                category: categories[categoryIdx],
+                type: targetIdx,
+                category: categoryIdx,
             });
         } catch (err) {
             console.log('Error while adding data to database.');
@@ -83,11 +57,9 @@ const Analysis = () => {
 
     const exportPdf = async (e) => {
         e.preventDefault();
-        console.log('tables');
-        console.log(tables);
 
         try {
-            const result = await window.electron.generatePDF({data: tables, type: categories[categoryIdx]});
+            const result = await window.electron.generatePDF({data: tables, type: CATEGORY[categoryIdx]});
             // setFilePath(result.filePath);  // Display file path or use it for further logic
             console.log('result');
             console.log(result);
@@ -103,7 +75,7 @@ const Analysis = () => {
         e.preventDefault();
 
         try {
-            const result = await window.electron.generateExcel({data: tables, type: categories[categoryIdx]});
+            const result = await window.electron.generateExcel({data: tables, type: CATEGORY[categoryIdx]});
             // setFilePath(result.filePath);  // Display file path or use it for further logic
             console.log('result');
             console.log(result);
@@ -159,17 +131,19 @@ const Analysis = () => {
                             <Form.Select className="form-select analysis-top-select"
                                 id="exampleSelect1"
                                 style={{ borderRight: '1px solid #e1e1e1'}}
+                                value={CATEGORY[categoryIdx]}
                                 onChange={(e) => categoryHandler(e.target.selectedIndex)}
                             >
-                                {categories.map((cat, idx) => (
+                                {CATEGORY.map((cat, idx) => (
                                     <option key={idx}>{cat}</option>
                                 ))}
                             </Form.Select>
                             <Form.Select className="form-select analysis-top-select"
                                 id="exampleSelect1"
+                                value={TARGET[CATEGORY[categoryIdx]][targetIdx]}
                                 onChange={(e) => targetHandler(e.target.selectedIndex)}
                             >
-                                {target[categories[categoryIdx]].map((option, idx) => (
+                                {TARGET[CATEGORY[categoryIdx]].map((option, idx) => (
                                     <option key={idx}>{option}</option>
                                 ))}
                             </Form.Select>

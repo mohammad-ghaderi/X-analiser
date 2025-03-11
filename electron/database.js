@@ -18,14 +18,19 @@ const initDB = async () => {
 
     // Ensure 'analysis' table exists
     const analysisExists = await db.schema.hasTable("analysis");
+    // if (analysisExists) {
+    //   await db.schema.dropTable("analysis");
+    //   console.log("Old analysis table dropped.");
+    // }
+
     if (!analysisExists) {
       await db.schema.createTable("analysis", (table) => {
         table.increments("id").primary();
-        table.string("type").notNullable();
-        table.string("category").notNullable();
-        table.json("data").notNullable(); // JSON column for storing objects
-        table.timestamp("created_at").defaultTo(db.fn.now()); // Store the insertion timestamp
-        table.timestamp("last_edited").defaultTo(db.fn.now()); // Store the insertion timestamp
+        table.integer("type").notNullable(); // Changed to integer
+        table.integer("category").notNullable(); // Changed to integer
+        table.json("data").notNullable();
+        table.timestamp("created_at").defaultTo(db.fn.now());
+        table.timestamp("last_edited").defaultTo(db.fn.now());
       });
       console.log("Analysis table created.");
     }

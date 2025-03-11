@@ -4,10 +4,11 @@ const HttpError = require('../modules/http-error.js');
 const createAnalysis = async (req, res, next) => {
     try {
         const { type, category, data } = req.body;
-
-        if (!type || !category || !data) {
+        
+        if (!data) {
             return res.status(400).json({ error: "Missing required fields" });
         }
+
 
         const [id] = await db("analysis").insert({
             type,
