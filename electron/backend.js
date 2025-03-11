@@ -6,7 +6,6 @@ const PORT = 3001;
 const backend = express();
 backend.use(express.json());
 
-// backend.use(cors({ origin: "http://localhost:5173" }));
 backend.use(cors());
 
 // Sample API Route: Get all users
