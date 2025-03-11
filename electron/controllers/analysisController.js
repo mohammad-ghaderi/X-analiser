@@ -65,10 +65,16 @@ const updateAnalysis = async (req, res, next) => {
 
 // Delete an analysis entry
 const deleteAnalysis = async (req, res, next) => {
+    console.log('hello');
     try {
         const { id } = req.params;
 
-        const deletedRows = await db("analysis").where({ id }).del();
+        const record = await db("analysis").where({id: parseInt(id)}).first();
+        if (!record) {
+            return res.status(404).json({ message: "Record not found" });
+        }
+
+        const deletedRows = await db("analysis").where({ id: Number(id) }).del();
 
         if (deletedRows) {
             res.json({ message: `Analysis entry ${id} deleted.` });

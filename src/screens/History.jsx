@@ -20,8 +20,9 @@ const History = ({setMenuIdx}) => {
     const deleteHandler = async (e, index) => {
         e.stopPropagation();
         try {
-            const {data} = await axios.delete(`http://localhost:3001/analysis:${index}`);
-            setAnalysisData(data);
+            const {data} = await axios.delete(`http://localhost:3001/analysis/${index}`);
+            console.log(data)
+            fetchData();
         } catch (err) {
             console.log('Error while removing anslysis data.');
         }
@@ -67,7 +68,7 @@ const History = ({setMenuIdx}) => {
                                 <ButtonGroup>
                                     <i className="fa-solid fa-trash-can text-danger px-1"
                                         style={{fontSize: '1.5rem'}}
-                                        onClick={(e) => deleteHandler(e, index)}
+                                        onClick={(e) => deleteHandler(e, tr.id)}
                                     ></i>
                                     <i className="fa-solid fa-file-pdf text-wanring px-1"
                                         style={{fontSize: '1.5rem'}}
