@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HomeScreen from './screens/HomeScreen';
+import Home from './screens/Home';
 import Analysis  from './screens/Analysis';
 import Profile from './screens/Profile';
 import History from "./screens/History";
@@ -19,7 +19,7 @@ const App = () => {
             <Navbar menuIdx={menuIdx} setMenuIdx={setMenuIdx}/>
             <div style={{paddingLeft: '4.5rem'}}>
                 <Routes>
-                    <Route path="/" element={<HomeScreen />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/analysis" element={<Analysis />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/history" element={<History setMenuIdx={setMenuIdx}/>} />

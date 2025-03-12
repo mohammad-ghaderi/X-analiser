@@ -167,7 +167,7 @@ const Analysis = () => {
                     </div>
                 </div>
             </Row>
-            <Row className='g-0'>
+            <Row className='g-0 p-3'>
 
                 {tabIdx === 0 && <TechnicalAnalisis fr={fr} />}
                 {tabIdx === 1 && <FundamentalAnalisis type={categoryIdx} fr={fr} />}
