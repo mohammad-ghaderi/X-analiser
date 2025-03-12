@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const fillExcel = require('./fillExcel');
+const { shell } = require('electron');
 
 
 const generateExcel = async (data, type, savePath) => {
@@ -22,6 +23,11 @@ const generateExcel = async (data, type, savePath) => {
     fs.copyFileSync(templatePath, savePath);
 
     fillExcel(data, type, savePath)
+
+    // Open the generated Excel file
+    shell.openPath(savePath).then((res) => {
+        if (res) console.error("Failed to open Excel file:", res);
+    });
 
     return { message: "Excel file created successfully", filePath: savePath };
 };

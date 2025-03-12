@@ -5,10 +5,10 @@ import { TablesContext } from '../contexts/TablesContext';
 import { useNavigate } from 'react-router-dom';
 import { CATEGORY, TARGET } from '../designs/types';
 
-const History = ({setMenuIdx}) => {
+const History = ({ setMenuIdx }) => {
 
     const [analysisData, setAnalysisData] = useState([]);
-    const {setTables, setCategoryIdx, setTargetIdx  } = useContext(TablesContext);
+    const { setTables, setCategoryIdx, setTargetIdx, categoryIdx } = useContext(TablesContext);
 
     const navigate = useNavigate();
 
@@ -20,10 +20,33 @@ const History = ({setMenuIdx}) => {
         navigate('/analysis');
     }
 
+    const exportPdf = async (e, index) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        try {
+            const result = await window.electron.generatePDF({ data: analysisData[index], type: CATEGORY[categoryIdx] });
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
+
+    const exportExcel = async (e, index) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        try {
+            const result = await window.electron.generateExcel({ data: analysisData[index], type: CATEGORY[categoryIdx] });
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     const deleteHandler = async (e, index) => {
         e.stopPropagation();
         try {
-            const {data} = await axios.delete(`http://localhost:3001/analysis/${index}`);
+            const { data } = await axios.delete(`http://localhost:3001/analysis/${index}`);
             console.log(data)
             fetchData();
         } catch (err) {
@@ -33,7 +56,7 @@ const History = ({setMenuIdx}) => {
 
     const fetchData = async () => {
         try {
-            const {data} = await axios.get("http://localhost:3001/analysis");
+            const { data } = await axios.get("http://localhost:3001/analysis");
             setAnalysisData(data);
         } catch (err) {
             console.log('Error while fetching anslysis data.');
@@ -45,52 +68,54 @@ const History = ({setMenuIdx}) => {
         fetchData();
     }, [])
 
-  return (
-    <Container>
-        <Row className='mt-5'>
-            <Table striped hover>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>id</th>
-                        <th>category</th>
-                        <th>type</th>
-                        <th>created</th>
-                        <th>last edit</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {analysisData.map((tr, index) => (
-                        <tr key={index} onClick={() => selectHistoryHandler(index)}>
-                            <td>{index + 1}</td>
-                            <td>{tr.id}</td>
-                            <td>{CATEGORY[Number(tr.category)]}</td>
-                            <td>{TARGET[CATEGORY[Number(tr.category)]][Number(tr.type)]}</td>
-                            <td>{tr.created_at}</td>
-                            <td>{tr.last_edited}</td>
-                            <td style={{width: '100px'}}>
-                                <ButtonGroup>
-                                    <i className="fa-solid fa-trash-can text-danger px-1"
-                                        style={{fontSize: '1.5rem'}}
-                                        onClick={(e) => deleteHandler(e, tr.id)}
-                                    ></i>
-                                    <i className="fa-solid fa-file-pdf text-wanring px-1"
-                                        style={{fontSize: '1.5rem'}}
-                                    ></i>
-                                    <i className="fa-solid fa-file-csv text-success px-1"
-                                        style={{fontSize: '1.5rem'}}
-                                    ></i>
-                                </ButtonGroup>
-                            </td>
+    return (
+        <Container>
+            <Row className='mt-5'>
+                <Table striped hover>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>id</th>
+                            <th>category</th>
+                            <th>type</th>
+                            <th>created</th>
+                            <th>last edit</th>
+                            <th></th>
                         </tr>
-                    ))}
-                </tbody>
-            </Table>
+                    </thead>
+                    <tbody>
+                        {analysisData.map((tr, index) => (
+                            <tr key={index} onClick={() => selectHistoryHandler(index)}>
+                                <td>{index + 1}</td>
+                                <td>{tr.id}</td>
+                                <td>{CATEGORY[Number(tr.category)]}</td>
+                                <td>{TARGET[CATEGORY[Number(tr.category)]][Number(tr.type)]}</td>
+                                <td>{tr.created_at}</td>
+                                <td>{tr.last_edited}</td>
+                                <td style={{ width: '100px' }}>
+                                    <ButtonGroup>
+                                        <i className="fa-solid fa-trash-can text-danger px-1"
+                                            style={{ fontSize: '1.5rem' }}
+                                            onClick={(e) => deleteHandler(e, tr.id)}
+                                        ></i>
+                                        <i className="fa-solid fa-file-pdf text-wanring px-1"
+                                            style={{ fontSize: '1.5rem' }}
+                                            onClick={(e) => exportPdf(e, index)}
+                                        ></i>
+                                        <i className="fa-solid fa-file-csv text-success px-1"
+                                            style={{ fontSize: '1.5rem' }}
+                                            onClick={(e) => exportExcel(e, index)}
+                                        ></i>
+                                    </ButtonGroup>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
 
-        </Row>
-    </Container>
-  )
+            </Row>
+        </Container>
+    )
 }
 
 export default History

@@ -59,12 +59,7 @@ const Analysis = () => {
         e.preventDefault();
 
         try {
-            const result = await window.electron.generatePDF({data: tables, type: CATEGORY[categoryIdx]});
-            // setFilePath(result.filePath);  // Display file path or use it for further logic
-            console.log('result');
-            console.log(result);
-
-            
+            const result = await window.electron.generatePDF({data: tables, type: CATEGORY[categoryIdx]});            
           } catch (error) {
             console.error(error);
         }
@@ -75,11 +70,7 @@ const Analysis = () => {
         e.preventDefault();
 
         try {
-            const result = await window.electron.generateExcel({data: tables, type: CATEGORY[categoryIdx]});
-            // setFilePath(result.filePath);  // Display file path or use it for further logic
-            console.log('result');
-            console.log(result);
-            
+            const result = await window.electron.generateExcel({data: tables, type: CATEGORY[categoryIdx]});            
         } catch (error) {
             console.error(error);
         }

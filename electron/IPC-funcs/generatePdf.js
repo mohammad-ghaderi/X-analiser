@@ -4,6 +4,7 @@ const { exec } = require('child_process');
 const path = require('path');
 const fillExcel = require('./fillExcel');
 const { app } = require("electron");
+const { shell } = require('electron');
 
 // Function to copy template to a temporary file and convert it to PDF
 const generatePDF = async (data, type, pdfOutputPath) => {
@@ -66,7 +67,12 @@ const convertExcelToPDF = (excelPath, pdfPath, callback) => {
         }
         console.log('PDF generated successfully:', pdfPath);
         console.log('stdout:', stdout);
-        // if (callback) callback();
+        if (callback) callback();
+
+        // Open the PDF file
+        shell.openPath(pdfPath).then((res) => {
+            if (res) console.error("Failed to open PDF:", res);
+        });
     });
 }
 

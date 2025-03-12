@@ -60,7 +60,7 @@ const Home = ({ setMenuIdx }) => {
             <Row className='gx-0 p-1 p-5 categ' style={{ backgroundColor: '#8884d840' }}>
                 {CATEGORY.map((cat, idx) => (
                     <Col md={3} key={idx} className='px-3'>
-                        <Card className='py-3 box border-0' onClick={() => categoryHandler(idx)}>
+                        <Card className='py-3 box border-0 my-1 mb-3' onClick={() => categoryHandler(idx)}>
                             <Card.Title className='text-center p-1'>{cat}</Card.Title>
 
                             <Card.Body className='d-flex justify-content-center display-4' >
