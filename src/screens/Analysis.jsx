@@ -85,6 +85,10 @@ const Analysis = () => {
         }
     }
 
+    const newHandler = () => {
+        setTables({});
+    }
+    
     useEffect(() => {
         if (fr === 0) return;
         setTables({});
@@ -162,7 +166,7 @@ const Analysis = () => {
                                 </Dropdown.Menu>
                             </Dropdown>
                             <Button variant="dark" onClick={() => saveHandler()}>Save</Button>
-                            <Button variant="primary">New</Button>
+                            <Button variant="primary" onClick={() => newHandler()}>New</Button>
                         </ButtonGroup>
                     </div>
                 </div>

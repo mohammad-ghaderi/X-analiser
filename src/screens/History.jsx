@@ -15,7 +15,6 @@ const History = ({setMenuIdx}) => {
     const selectHistoryHandler = (index) => {
         setTables(analysisData[index].data);
         setCategoryIdx(analysisData[index].category)
-        console.log('xx', analysisData[index])
         setTargetIdx(analysisData[index].type)
         setMenuIdx(1);
         navigate('/analysis');

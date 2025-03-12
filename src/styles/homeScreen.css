@@ -1,0 +1,14 @@
+.categ .box {
+    transition: box-shadow 0.4s ease-in-out, background-color 0.3s;
+    border: none !important;
+}
+
+.categ .box:hover {
+    animation: shadowPulse 0.4s ease-in-out forwards;
+}
+
+@keyframes shadowPulse {
+    0% { box-shadow: 0 0 0px 0px #9992; }
+    50% { box-shadow: 0 0 5px 5px #9992; }
+    100% { box-shadow: 0 0 10px 7px #9992; }
+}

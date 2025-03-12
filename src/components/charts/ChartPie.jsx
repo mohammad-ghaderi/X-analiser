@@ -80,7 +80,7 @@ export default class ChartPie extends PureComponent {
                             cx="50%"
                             cy="50%"
                             innerRadius={60}
-                            outerRadius={80}
+                            outerRadius={110}
                             fill="#8884d8"
                             dataKey="value"
                             onMouseEnter={this.onPieEnter}

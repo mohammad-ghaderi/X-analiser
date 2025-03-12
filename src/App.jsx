@@ -19,7 +19,7 @@ const App = () => {
             <Navbar menuIdx={menuIdx} setMenuIdx={setMenuIdx}/>
             <div style={{paddingLeft: '4.5rem'}}>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Home setMenuIdx={setMenuIdx}/>} />
                     <Route path="/analysis" element={<Analysis />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/history" element={<History setMenuIdx={setMenuIdx}/>} />
